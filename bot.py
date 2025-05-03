@@ -42,6 +42,9 @@ async def on_message(message):
 
         if message.reference:
             rep_msg = await message.channel.fetch_message(message.reference.message_id)
+            if rep_msg.author == client.user:
+                await message.reply(sentence)
+                return
             await rep_msg.reply(sentence)
         else:
             await message.reply(sentence)
