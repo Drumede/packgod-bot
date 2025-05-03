@@ -7,7 +7,6 @@ def fix_word(word : str):
 def random_from_array(array:list):
     return array[random.randint(0,len(array)-1)]
 
-
 words = []
 with open("words.txt","r") as file:
     for word in file.readlines():
