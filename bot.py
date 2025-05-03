@@ -3,6 +3,7 @@ import discord
 from dotenv import load_dotenv
 import random
 import re
+import json
 
 load_dotenv()
 TOKEN = os.getenv('TOKEN')
@@ -21,6 +22,9 @@ with open("words.txt", "r") as file:
     for word in file.readlines():
         words.append(word.replace("\n", ""))
 
+with open("templates.json", "r") as file:
+    templates = json.loads(file.read())
+
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
@@ -36,7 +40,7 @@ async def on_message(message):
             new_words.append(random_from_array(words).upper())
         new_words = " ".join(new_words)
 
-        sentence = re.sub("{w}", new_words, "SHUT YO {w} AHH")
+        sentence = re.sub("{w}", new_words, random_from_array(templates))
 
         print(sentence)
 
