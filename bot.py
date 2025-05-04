@@ -63,8 +63,8 @@ async def on_message(message):
     if client.user.mentioned_in(message):
         new_words = []
         for i in range(random.randint(2, 10)):
-            if random.randint(0,10) == 0:
-                new_words.append(get_random_unicode(random.randint(1, 15)))
+            if random.randint(0,5) == 0:
+                new_words.append(get_random_unicode(random.randint(5, 15)))
                 continue
             new_words.append(random_from_array(words).upper())
         new_words = " ".join(new_words)
