@@ -14,6 +14,7 @@ intents.message_content = True
 client = discord.Client(intents=intents)
 
 def wingdings_to_unicode(text:str):
+    print(text)
     letters = "abcdefghijklmnopqrstuvwxyz- "
     wingdings = "✌︎👌︎👍︎👎︎☜︎☞︎☝︎☟︎✋︎☺︎😐︎☹︎💣︎☠︎⚐︎🏱︎✈︎☼︎💧︎❄︎🕆︎✞︎🕈︎✠︎✡︎☪︎📫︎ "
     result = ""
