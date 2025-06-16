@@ -13,6 +13,22 @@ intents.message_content = True
 
 client = discord.Client(intents=intents)
 
+def wingdings_to_unicode(text:str):
+    letters = "abcdefghijklmnopqrstuvwxyz- "
+    wingdings = "✌︎👌︎👍︎👎︎☜︎☞︎☝︎☟︎✋︎☺︎😐︎☹︎💣︎☠︎⚐︎🏱︎✈︎☼︎💧︎❄︎🕆︎✞︎🕈︎✠︎✡︎☪︎📫︎ "
+    result = ""
+    for char in text:
+        print(char.lower())
+        char_index = letters.index(char.lower())
+        if char_index < 26:
+            new_char = wingdings[char_index]
+        else:
+            new_char = char
+        result += new_char
+        print(result)
+    return result
+
+
 def get_random_unicode(length):
 
     get_char = chr
@@ -70,7 +86,8 @@ async def on_message(message):
         new_words = " ".join(new_words)
 
         sentence = re.sub("{w}", new_words, random_from_array(templates))
-
+        if "gaster" in message.content:
+            sentence = wingdings_to_unicode(sentence)
         print(sentence)
 
         if message.reference:
