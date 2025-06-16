@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1d3dd474-2409-4ecc-b67f-7be2b9ef91d1" name="Changes" comment="Wlow">
+    <list default="true" id="1d3dd474-2409-4ecc-b67f-7be2b9ef91d1" name="Changes" comment="gaster mode">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
     </list>
@@ -134,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746385205488</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="gaster mode">
+      <option name="closed" value="true" />
+      <created>1750082272507</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1750082272507</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -153,6 +161,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Wlow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Wlow" />
+    <MESSAGE value="gaster mode" />
+    <option name="LAST_COMMIT_MESSAGE" value="gaster mode" />
   </component>
 </project>
