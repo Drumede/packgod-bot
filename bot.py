@@ -18,12 +18,14 @@ def wingdings_to_unicode(text:str):
     wingdings = "✌︎👌︎👍︎👎︎☜︎☞︎☝︎☟︎✋︎☺︎😐︎☹︎💣︎☠︎⚐︎🏱︎✈︎☼︎💧︎❄︎🕆︎✞︎🕈︎✠︎✡︎☪︎📫︎ "
     result = ""
     for char in text:
+        print(char.lower())
         char_index = letters.index(char.lower())
         if char_index < 26:
             new_char = wingdings[char_index]
         else:
             new_char = char
         result += new_char
+        print(result)
     return result
 
 
