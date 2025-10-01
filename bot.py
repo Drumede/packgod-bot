@@ -94,9 +94,9 @@ async def on_message(message):
         if "gaster" in message.content:
             sentence = wingdings_to_unicode(sentence)
         if message.author.id == 1422715274133770270:
-            sentence = "Fuck you grok"
+            sentence = re.sub("{w}", new_words, "FUCK YOU GROK YOU {w}")
             global grokcounter
-            if grokcounter == 1:
+            if grokcounter == 4:
                 sentence = "Alright. Ok. EXTERMINATE. Bitch."
                 grokcounter = 0
             grokcounter += 1
