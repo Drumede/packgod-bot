@@ -91,7 +91,7 @@ async def on_message(message):
         sentence = re.sub("{w}", new_words, random_from_array(templates))
         if "gaster" in message.content:
             sentence = wingdings_to_unicode(sentence)
-        if message.author.id == 769607369076113449:
+        if message.author.id == 1422715274133770270:
             sentence = "Fuck you grok"
         print(sentence)
 
