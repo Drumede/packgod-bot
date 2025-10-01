@@ -133,26 +133,28 @@ async def mirror_send(ctx,content : str,channel_link : str = ""):
         guild = client.get_guild(int(channel_link[0]))
         channel = guild.get_channel(int(channel_link[1]))
         last_channel = channel_link[:2]
+        new_words = []
+        for i in range(random.randint(2, 10)):
+            if random.randint(0, 10) == 0:
+                new_words.append(get_random_unicode(random.randint(5, 15)))
+                continue
+            new_words.append(random_from_array(words).upper())
+        new_words = " ".join(new_words)
         if channel:  # Ensure the channel was found
+            sentence = re.sub("{w}", new_words, "content")
             msg = None
             if len(channel_link) == 3:
                 rep_msg = await channel.fetch_message(int(channel_link[2]))
-                msg = await rep_msg.reply(content)
+                msg = await rep_msg.reply(sentence)
             else:
-                msg = await channel.send(content)
+                msg = await channel.send(sentence)
             if msg:
                 mirrored.append(msg.id)
                 if len(mirrored) > 100:
                     mirrored.pop(0)
                 await ctx.send(msg.jump_url)
             else:
-                new_words = []
-                for i in range(random.randint(2, 10)):
-                    if random.randint(0, 10) == 0:
-                        new_words.append(get_random_unicode(random.randint(5, 15)))
-                        continue
-                    new_words.append(random_from_array(words).upper())
-                new_words = " ".join(new_words)
+
 
                 sentence = re.sub("{w}", new_words, "you fucking {w} it failed")
                 await ctx.send(sentence)
