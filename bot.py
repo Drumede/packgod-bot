@@ -93,6 +93,8 @@ async def on_message(message):
             sentence = wingdings_to_unicode(sentence)
         if message.author.id == 1422715274133770270:
             sentence = "Fuck you grok"
+            if message.content == "Aren't you 5'1 lil bro?":
+                sentence = "Alright. Ok. EXTERMINATE. Bitch."
         print(sentence)
 
         if message.reference:
