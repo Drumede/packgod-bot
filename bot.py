@@ -91,8 +91,7 @@ async def on_message(message):
         new_words = " ".join(new_words)
 
         sentence = re.sub("{w}", new_words, random_from_array(templates))
-        if "gaster" in message.content:
-            sentence = wingdings_to_unicode(sentence)
+
         if message.author.id == 1422715274133770270:
             sentence = re.sub("{w}", new_words, "FUCK YOU GROK YOU {w}")
             global grokcounter
@@ -100,6 +99,8 @@ async def on_message(message):
                 sentence = "Alright. Ok. EXTERMINATE. Bitch."
                 grokcounter = 0
             grokcounter += 1
+        if "gaster" in message.content:
+            sentence = wingdings_to_unicode(sentence)
         print(sentence)
 
         if message.reference:
