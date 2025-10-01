@@ -126,8 +126,9 @@ async def mirror_send(ctx,content : str,channel_link : str = ""):
         global last_channel
         if channel_link == "":
             channel_link = last_channel
-        channel_link = channel_link.split("/")
-        channel_link = channel_link[channel_link.index("channels")+1:]
+        else:
+            channel_link = channel_link.split("/")
+            channel_link = channel_link[channel_link.index("channels")+1:]
         print(channel_link)
         guild = client.get_guild(int(channel_link[0]))
         channel = guild.get_channel(int(channel_link[1]))
