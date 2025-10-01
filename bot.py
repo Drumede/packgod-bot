@@ -136,6 +136,8 @@ async def mirror_send(ctx,content : str,channel_link : str):
                 msg = await channel.send(content)
             if msg:
                 mirrored.append(msg.id)
+                if len(mirrored) > 100:
+                    mirrored.pop(0)
                 await ctx.send(msg.jump_url)
             else:
                 new_words = []
