@@ -13,6 +13,8 @@ intents.message_content = True
 
 client = discord.Client(intents=intents)
 
+grokcounter = 0
+
 def wingdings_to_unicode(text:str):
     print(text)
     letters = "abcdefghijklmnopqrstuvwxyz- "
@@ -93,8 +95,11 @@ async def on_message(message):
             sentence = wingdings_to_unicode(sentence)
         if message.author.id == 1422715274133770270:
             sentence = "Fuck you grok"
-            if message.content == "Aren't you 5'1 lil bro?":
+            global grokcounter
+            grokcounter += 1
+            if message.content == "Aren't you 5'1 lil bro?" and grokcounter == 1:
                 sentence = "Alright. Ok. EXTERMINATE. Bitch."
+                grokcounter = 0
         print(sentence)
 
         if message.reference:
