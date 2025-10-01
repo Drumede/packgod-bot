@@ -120,7 +120,7 @@ async def on_message(message):
     await client.process_commands(message)
 
 @client.command()
-async def mirror_send(ctx,content : str,channel_link : str = ""):
+async def send(ctx,content : str,channel_link : str = ""):
     if ctx.guild.id == 1185563607736537098:
         global mirrored
         global last_channel
