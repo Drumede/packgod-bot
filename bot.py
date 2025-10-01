@@ -17,6 +17,7 @@ client.remove_command('help')
 
 grokcounter = 0
 mirrored = []
+last_channel = []
 
 def wingdings_to_unicode(text:str):
     letters = "abcdefghijklmnopqrstuvwxyz- "
@@ -119,14 +120,18 @@ async def on_message(message):
     await client.process_commands(message)
 
 @client.command()
-async def mirror_send(ctx,content : str,channel_link : str):
+async def mirror_send(ctx,content : str,channel_link : str = ""):
     if ctx.guild.id == 1185563607736537098:
         global mirrored
+        global last_channel
+        if channel_link == "":
+            channel_link = last_channel
         channel_link = channel_link.split("/")
         channel_link = channel_link[channel_link.index("channels")+1:]
         print(channel_link)
         guild = client.get_guild(int(channel_link[0]))
         channel = guild.get_channel(int(channel_link[1]))
+        last_channel = channel_link[:2]
         if channel:  # Ensure the channel was found
             msg = None
             if len(channel_link) == 3:
