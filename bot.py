@@ -16,6 +16,7 @@ client = commands.Bot(command_prefix="p!", intents=intents)
 client.remove_command('help')
 
 grokcounter = 0
+mirrored = []
 
 def wingdings_to_unicode(text:str):
     letters = "abcdefghijklmnopqrstuvwxyz- "
@@ -79,6 +80,7 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
+    global mirrored
 
     if client.user.mentioned_in(message):
         new_words = []
@@ -107,6 +109,8 @@ async def on_message(message):
         if message.reference:
             rep_msg = await message.channel.fetch_message(message.reference.message_id)
             if rep_msg.author == client.user:
+                if rep_msg.id in mirrored:
+                    return
                 await message.reply(sentence)
                 return
             await rep_msg.reply(sentence)
@@ -117,6 +121,7 @@ async def on_message(message):
 @client.command()
 async def mirror_send(ctx,content : str,channel_link : str):
     if ctx.guild.id == 1185563607736537098:
+        global mirrored
         channel_link = channel_link.split("/")
         channel_link = channel_link[channel_link.index("channels")+1:]
         print(channel_link)
@@ -130,6 +135,7 @@ async def mirror_send(ctx,content : str,channel_link : str):
             else:
                 msg = await channel.send(content)
             if msg:
+                mirrored.append(msg.id)
                 await ctx.send(msg.jump_url)
             else:
                 new_words = []
@@ -143,6 +149,6 @@ async def mirror_send(ctx,content : str,channel_link : str):
                 sentence = re.sub("{w}", new_words, "you fucking {w} it failed")
                 await ctx.send(sentence)
         else:
-            print(f"Channel with ID {channel_id} not found in guild {guild_id}")
+            print(f"Channel with ID {channel_link[0]} not found in guild {channel_link[1]}")
 
 client.run(TOKEN)
