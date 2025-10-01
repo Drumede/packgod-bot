@@ -16,12 +16,10 @@ client = discord.Client(intents=intents)
 grokcounter = 0
 
 def wingdings_to_unicode(text:str):
-    print(text)
     letters = "abcdefghijklmnopqrstuvwxyz- "
     wingdings = "✌︎👌︎👍︎👎︎☜︎☞︎☝︎☟︎✋︎☺︎😐︎☹︎💣︎☠︎⚐︎🏱︎✈︎☼︎💧︎❄︎🕆︎✞︎🕈︎✠︎✡︎☪︎📫︎ "
     result = ""
     for char in text:
-        print(char.lower())
         if not char.lower() in letters:
             continue
         char_index = letters.index(char.lower())
@@ -30,7 +28,6 @@ def wingdings_to_unicode(text:str):
         else:
             new_char = char
         result += new_char
-        print(result)
     return result
 
 
