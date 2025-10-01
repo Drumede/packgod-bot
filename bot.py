@@ -96,10 +96,10 @@ async def on_message(message):
         if message.author.id == 1422715274133770270:
             sentence = "Fuck you grok"
             global grokcounter
-            grokcounter += 1
             if message.content == "Aren't you 5'1 lil bro?" and grokcounter == 1:
                 sentence = "Alright. Ok. EXTERMINATE. Bitch."
                 grokcounter = 0
+            grokcounter += 1
         print(sentence)
 
         if message.reference:
