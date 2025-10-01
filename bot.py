@@ -124,7 +124,7 @@ async def mirror_send(ctx,content : str,channel_link : str):
         channel = guild.get_channel(int(channel_link[1]))
         if channel:  # Ensure the channel was found
             msg = None
-            if channel_link[2]:
+            if len(channel_link) == 3:
                 rep_msg = await channel.fetch_message(int(channel_link[2]))
                 msg = await rep_msg.reply(content)
             else:
