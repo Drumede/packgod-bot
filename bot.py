@@ -141,7 +141,7 @@ async def mirror_send(ctx,content : str,channel_link : str = ""):
             new_words.append(random_from_array(words).upper())
         new_words = " ".join(new_words)
         if channel:  # Ensure the channel was found
-            sentence = re.sub("{w}", new_words, "content")
+            sentence = re.sub("{w}", new_words, content)
             msg = None
             if len(channel_link) == 3:
                 rep_msg = await channel.fetch_message(int(channel_link[2]))
